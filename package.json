@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jhta/lab-react/issues"
   },
-  "homepage": "https://github.com/jhta/lab-react#readme"
+  "homepage": "https://github.com/jhta/lab-react#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
