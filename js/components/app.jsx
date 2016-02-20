@@ -3,6 +3,7 @@ import Form from './Form';
 import Detail from './Detail';
 import List from './List';
 import SearchBar from './Search';
+import ClientStore from '../stores/client';
 
 var elements = [
   {
@@ -29,9 +30,18 @@ const App = React.createClass({
   
   getInitialState() {
     return {
-      elements: elements,
+      elements: ClientStore.getClients(),
       elementToShow: 1,
     }
+  },
+
+  componentDidMount() {
+    debugger
+    ClientStore.addChangeListener(this.onChange);
+  },
+
+  componentWillUnmount() {
+    ClientStore.removeChangeListener(this.onChange);
   },
 
   getElementDetail(id) {
@@ -42,18 +52,13 @@ const App = React.createClass({
     })[0];
   },
 
-  addElement(element) {
-    const elements = this.state.elements;
-    elements.push(element);
+  onChange() {
+    const clients = ClientStore.getClients();
+    debugger
     this.setState({
-      elements: elements,
+      elements: clients,
     })
-  },
-
-  changeDetail(id) {
-    this.setState({
-      elementToShow: id,
-    });
+    console.log("onChange");
   },
 
   render() {
@@ -62,10 +67,10 @@ const App = React.createClass({
       <div className="App">
         <div className="App-left">
           <SearchBar />
-          <List elements={this.state.elements} changeDetail={this.changeDetail}/>
+          <List elements={this.state.elements}/>
         </div>
         <div className="App-right">
-          <Form addElement={this.addElement}/>
+          <Form />
           <Detail detail={detail}/>
         </div>
       </div>
