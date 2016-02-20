@@ -7,8 +7,8 @@ const Detail = React.createClass({
         <figure>
           <img src="" height="60" width="60"/>
         </figure>
-        <h2>Nombre</h2>
-        <span>Nick</span>
+        <h2>{this.props.detail.name}</h2>
+        <span>{this.props.detail.nick}</span>
       </div>
     );
   }

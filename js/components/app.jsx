@@ -20,6 +20,7 @@ var elements = [
     name: "carlos",
     nick: "car",
   },
+
 ];
 
 
@@ -29,7 +30,16 @@ const App = React.createClass({
   getInitialState() {
     return {
       elements: elements,
+      elementToShow: 1,
     }
+  },
+
+  getElementDetail(id) {
+    return this.state.elements.filter(function(el) {
+      if (el.id === id) {
+        return el;
+      }
+    })[0];
   },
 
   addElement(element) {
@@ -41,16 +51,23 @@ const App = React.createClass({
     })
   },
 
+  changeDetail(id) {
+    this.setState({
+      elementToShow: id,
+    });
+  },
+
   render() {
+    const detail = this.getElementDetail(this.state.elementToShow);
     return (
       <div className="App">
         <div className="App-left">
           <SearchBar />
-          <List elements={elements}/>
+          <List elements={this.state.elements} changeDetail={this.changeDetail}/>
         </div>
         <div className="App-right">
           <Form addElement={this.addElement}/>
-          <Detail />
+          <Detail detail={detail}/>
         </div>
       </div>
     );

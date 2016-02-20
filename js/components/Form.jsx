@@ -3,7 +3,6 @@ import React from 'react';
 const Form = React.createClass({
   
   onSubmit(e) {
-
     e.preventDefault();
     const { name, nick } = this.refs;
     console.log(name, nick);
@@ -12,7 +11,6 @@ const Form = React.createClass({
       nick: nick.value,
       id: Math.floor(Math.random() * 1000000000),
     }
-    debugger
     this.props.addElement(element);
     name.value = "";
     nick.value = "";
