@@ -1,6 +1,6 @@
-import Calc from './calc';
+import React from 'react';
+import App from './components/app';
+import { render } from 'react-dom';
 
-console.log("hola mundo 3");
-console.log("suma",Calc.sum(4,9));
-console.log("mult",Calc.mult(2,3));
-console.log("sub",Calc.sub(2,3));
+
+render(<App text="hola mundo :)"/>, document.body);

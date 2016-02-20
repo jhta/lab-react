@@ -1,0 +1,54 @@
+.App {
+  border: 1px solid red;
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+}
+
+.App-right, .App-left {
+  flex: 1;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.Search > input {
+  color: black;
+  padding: .6em;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.List {
+  padding: 1em;
+  list-style: none;
+  border: 1px solid black;
+}
+
+.List > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.List-item {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid green;
+}
+
+.Form > input {
+  margin: .5em;
+  padding: .5em;
+}
+
+.Detail {
+  display: flex;
+  flex-direction: column;
+  border: black 1px solid;
+}
