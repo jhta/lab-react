@@ -5,7 +5,7 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var browserSync = require('browser-sync').create();
 
-var entryPointJS = './src/js/app.js'
+var entryPointJS = './js/index.js'
 
 //funcion para transpilar el codigo
 //recibe un objeto de browserify con sus opciones
