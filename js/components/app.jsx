@@ -45,7 +45,6 @@ const App = React.createClass({
   addElement(element) {
     const elements = this.state.elements;
     elements.push(element);
-    debugger
     this.setState({
       elements: elements,
     })
