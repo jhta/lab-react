@@ -1,11 +1,12 @@
 import React from 'react';
-
+import ClientActions from '../actions/client';
 
 const Element = React.createClass({
   
   onClick(e) {
     e.preventDefault();
-    this.props.changeDetail(this.props.element.id);
+    ClientActions.changeDetail(this.props.element.id)
+    //this.props.changeDetail(this.props.element.id);
     //this.props.element.id
   },
 

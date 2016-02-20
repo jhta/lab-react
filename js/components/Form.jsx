@@ -1,4 +1,5 @@
 import React from 'react';
+import ClientActions from '../actions/client';
 
 const Form = React.createClass({
   
@@ -11,7 +12,8 @@ const Form = React.createClass({
       nick: nick.value,
       id: Math.floor(Math.random() * 1000000000),
     }
-    this.props.addElement(element);
+    //this.props.addElement(element);
+    ClientActions.addClient(element);
     name.value = "";
     nick.value = "";
   },
