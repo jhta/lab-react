@@ -31,12 +31,11 @@ const App = React.createClass({
   getInitialState() {
     return {
       elements: ClientStore.getClients(),
-      elementToShow: 1,
+      elementToShow: ClientStore.getDetailId(),
     }
   },
 
   componentDidMount() {
-    debugger
     ClientStore.addChangeListener(this.onChange);
   },
 
@@ -54,9 +53,10 @@ const App = React.createClass({
 
   onChange() {
     const clients = ClientStore.getClients();
-    debugger
+    const elementToShow = ClientStore.getDetailId();
     this.setState({
       elements: clients,
+      elementToShow: elementToShow,
     })
     console.log("onChange");
   },

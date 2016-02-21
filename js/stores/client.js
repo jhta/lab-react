@@ -27,12 +27,11 @@ const _clients = [
 
 //cliente a mostrar
 
-const _clientToShow = 1; 
+let _clientToShow = 1; 
 
 
 const ClientStore = assign( EventEmitter.prototype, {
   emitChange: function() {
-    debugger
     this.emit(CHANGE_EVENT);
   },
 
@@ -46,29 +45,39 @@ const ClientStore = assign( EventEmitter.prototype, {
   },
 
   addClient(client) {
-    debugger
     _clients.push(client);
   },
 
   getClients() {
-    debugger
     return _clients;
+  },
+
+  changeClientDetail(id) {
+    _clientToShow = id;
+  },
+
+  getDetailId() {
+    debugger
+    return _clientToShow;
   }
 });
 
 
 Dispatcher.register(function(action) {
-  debugger
   switch (action.actionType) {
     case 'ADD_CLIENT':
-      debugger
       ClientStore.addClient(action.data)
       ClientStore.emitChange();
       break;
 
-    case 'CHANGE_CLIENT':
-      console.log("change client");
+    case 'CHANGE_DETAIL':
+    debugger
+      ClientStore.changeClientDetail(action.data.id);
+      console.log("ID");
+      ClientStore.emitChange()
       break;
+    default:
+      console.log("no se encuentra accion");
   }
 
 })

@@ -2,7 +2,6 @@ import Dispatcher from '../dispatcher';
 
 const ClientActions = {
   addClient(client) {
-    debugger
     Dispatcher.dispatch({
       actionType: 'ADD_CLIENT',
       data: client,
@@ -10,11 +9,11 @@ const ClientActions = {
     console.log("agregando cliente", client);
   },
   changeDetail(id) {
+    debugger
     Dispatcher.dispatch({
       actionType: 'CHANGE_DETAIL',
       data: {id: id},
     }); 
-    console.log("cambiando el detalle", id);
   }
 };
 
